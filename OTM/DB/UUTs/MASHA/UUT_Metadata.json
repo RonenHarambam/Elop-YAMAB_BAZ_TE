@@ -1,0 +1,17 @@
+{
+  "UutProperties": [
+    {
+      "Deleted": false,
+      "PropertyId": 1,
+      "UUTPropertyValuesOptions": [],
+      "DisplayInReportFileName": 0,
+      "PrintInClusterReport": 0,
+      "GuiVisible": 1,
+      "Required": 0,
+      "ReadOnly": 0,
+      "ArchiveFormVisible": 1,
+      "PropertyCaption": "S\\N",
+      "PropertyValue": null
+    }
+  ]
+}

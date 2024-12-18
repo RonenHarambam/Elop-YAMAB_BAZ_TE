@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{200747B8-929F-4D79-9C1C-6660468BD504}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>YAMAB_Utilities</RootNamespace>
+    <AssemblyName>YAMAB_Utilities</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\Runtime\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\Runtime\Release\YAMAB_Utilities.XML</DocumentationFile>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FrmBar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBar.Designer.cs">
+      <DependentUpon>FrmBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmControlSimple.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmControlSimple.Designer.cs">
+      <DependentUpon>FrmControlSimple.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmControl.Designer.cs">
+      <DependentUpon>FrmControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="YAMAB_Utilities.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FrmBar.resx">
+      <DependentUpon>FrmBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmControlSimple.resx">
+      <DependentUpon>FrmControlSimple.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmControl.resx">
+      <DependentUpon>FrmControl.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\YAMAB\YAMABManager.csproj">
+      <Project>{21E820CC-E62C-4349-B33B-39C19113BA8D}</Project>
+      <Name>YAMABManager</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

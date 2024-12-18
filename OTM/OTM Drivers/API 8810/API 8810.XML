@@ -1,0 +1,1143 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>API 8810</name>
+    </assembly>
+    <members>
+        <member name="T:DeviceManager.API8810Manager">
+             <summary>
+             char* -> byte[]
+             int* -> ref int
+             bool* -> ref bool
+             double* -> ref bouble
+             short int* -> ref short 
+             arrays: char[] -> byte[]
+            
+             Update List
+                Version 1.0.2.0
+                Date 1.12.2014
+                Issue - chnage bHold parameter to int from bool SetAPITrackHold(int apiNo, int nChanNo, int bHold)
+             </summary>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.ConnectViaIEEE(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            This function sets up and opens the connection to communicate to the 8810A via IEEE.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nIEEEAddr">IEEE Address to be used to connect to 8810A. (0-30)</param>
+            <param name="nIEEELanguage">Language Protocol to be used to communicate via IEEE to 8810A.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.ConnectViaUSB(System.Int32,System.Int32)">
+            <summary>
+            This function sets up and opens the connection to communicate to the 8810A via USB.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nDeviceNo">Device Number to be used to connect to 8810A. (0-30)</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.ConnectViaEthernet(System.Int32,System.String,System.Int32)">
+            <summary>
+            This function sets up and opens the connection to communicate to the 8810A via Ethernet.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="szIPAddr">IP Address to be used to connect to 8810A.</param>
+            <param name="nPort">Port to be used to connect to 8810A.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.DisconnectIEEE(System.Int32)">
+            <summary>
+            This function closes the connection to communicate to the 8810A via IEEE.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.DisconnectUSB(System.Int32)">
+            <summary>
+            This function closes the connection to communicate to the 8810A via USB.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.DisconnectEthernet(System.Int32)">
+            <summary>
+            This function closes the connection to communicate to the 8810A via Ethernet.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetAPI8810AUSBDeviceCnt(System.Int32@)">
+            <summary>
+            This function invokes the Cypress driver and returns the number of Cypress 
+            USB Devices detected with your computer system.
+            </summary>
+            <param name="pnUSBDeviceCnt">pointer to location to return the number of 
+            Cypress USB Devices detected</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetAPI8810ADeviceIDN(System.Int32,System.String@)">
+             <summary>
+            This function opens the USB device specified by the device number and
+            performs an IDN query (*IDN?\r\n) to retrieval information about the
+            device. If the device responds with “NORTH ATLANTIC,8810A” or its
+            associated model, this function will populate the IDN string with the
+            information retrieved from the device.
+             </summary>
+             <param name="nDeviceNo">USB device number to open and communication via USB with 8810A.</param>
+             <param name="pszIDN">pointer to location to return the IDN query response</param>
+             <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.SetAPITrackHold(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            This function sends the command to set 8810A channel specified to track or
+            hold the angle data. Note the 8810A device will not accept the command if
+            its remote communication configuration does not match the communication
+            connection mode.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nChanNo">8810A Channel</param>
+            <param name="bHold">command to track or hold channel angle</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetAPITrackHold(System.Int32,System.Int32,System.Boolean@)">
+            <summary>
+            This function sends the command to get the track or hold state for the 8810A channel.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nChanNo">8810A Channel</param>
+            <param name="pbHold">pointer to location to return the track or hold state for the channel</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.SetAPISignalMode(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            This function sends the command to set 8810A channel specified to resolver
+            or synchro mode. Note the 8810A device will not accept the command if its
+            remote communication configuration does not match the communication
+            connection mode.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nChanNo">8810A Channel</param>
+            <param name="nSigMode">signal mode to set channel Mode Types: RESOLVER 0,SYNCHRO 1</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetAPISignalMode(System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            This function sends the command to get the signal mode for the 8810A channel.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nChanNo">8810A Channel</param>
+            <param name="pnSigMode">pointer to location to return the channel signal mode Mode Types: RESOLVER 0,SYNCHRO 1</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.SetAPIReferenceSrc(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            This function sends the command to set 8810A channel specified to internal
+            or external reference mode. Note the 8810A device will not accept the
+            command if its remote communication configuration does not match the
+            communication connection mode.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nChanNo">8810A Channel</param>
+            <param name="nRefSrc">reference mode to set channel Reference Source Types: INTERNAL 0,EXTERNAL 1</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetAPIReferenceSrc(System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            This function sends the command to get the reference mode for the 8810A channel.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nChanNo">8810A Channel</param>
+            <param name="pnRefSrc">pointer to location to return the reference mode Reference Source Types: INTERNAL 0,EXTERNAL 1</param> 
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.SetAPIRatio(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            This function sends the command to set the ratio value for the specified
+            8810A channel. Note the 8810A device will not accept the command if its
+            remote communication configuration does not match the communication
+            connection mode.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nChanNo">8810A Channel</param>
+            <param name="nRatio">ratio value set channel (1 – 255)</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetAPIRatio(System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            This function sends the command to get the ratio value for the 8810A channel.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nChanNo">8810A Channel</param>
+            <param name="pnRatio">pointer to location to return the ratio value</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.SetAPIAutoBandwidth(System.Int32,System.Int32)">
+            <summary>
+            This function sends the command to set the bandwidth to “auto” mode for
+            the specified 8810A channel. Note the 8810A device will not accept the
+            command if its remote communication configuration does not match the
+            communication connection mode.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nChanNo">8810A Channel</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.SetAPIBandwidth(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            This function sends the command to set the bandwidth to “override” mode
+            with the bandwidth specified for the specified 8810A channel. Note the
+            8810A device will not accept the command if its remote communication
+            configuration does not match the communication connection mode.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nChanNo">8810A Channel</param>
+            <param name="nBandwidth">Bandwidth to set the channel</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetAPIBandwidthValue(System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            This function sends the command to get the bandwidth mode and bandwidth
+            value for the 8810A channel.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nChanNo">8810A Channel</param>
+            <param name="pnBandwidth">pointer to location to return the bandwidth value</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetAPIBandwidthMode(System.Int32,System.Int32,System.Byte@)">
+            <summary>
+            This function sends the command to get the bandwidth mode and bandwidth
+            value for the 8810A channel.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nChanNo">8810A Channel</param>
+            <param name="pbAutoBW">pointer to location to return the bandwidth mode indicator</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetAPIAngle(System.Int32,System.Int32,System.Double@)">
+            <summary>
+            This function sends the command or perform an IEEE read 
+            (with 8810 Legacy languages) to get angle value for the 8810A channel.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nChanNo">8810A Channel</param>
+            <param name="pdAngle">pointer to location to return the angle value</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetAPIAngleNormalize(System.Int32,System.Int32,System.Double@)">
+            <summary>
+            This function sends the command or perform an IEEE read 
+            (with 8810 Legacy languages) to get angle value for the 8810A channel and normalize it to -180-180 from 0-360.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nChanNo">8810A Channel</param>
+            <param name="pdAngle">pointer to location to return the angle value</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetAPIAvgAngle(System.Int32,System.Int32,System.Double@)">
+            <summary>
+            This function sends the command or perform an IEEE read (with 8810 Legacy
+            languages) to get angle value for the 8810A channel. In API8810A_NATIVE
+            language mode, if the angle averaging is turned on, the average angle
+            value is returned by the unit, otherwise the angle value is returned by
+            the unit.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nChanNo">8810A Channel</param>
+            <param name="pdAvgAngle">pointer to location to return the angle average value</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetAPIVelocity(System.Int32,System.Int32,System.Double@)">
+            <summary>
+            This function sends the command to get angle velocity value for the 8810A channel.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nChanNo">8810A Channel</param>
+            <param name="pdVelocity">pointer to location to return the angle velocity value</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetAPILineLineVolt(System.Int32,System.Int32,System.Double@)">
+            <summary>
+            This function sends the command to get line-to-line voltage value for the 8810A channel.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nChanNo">8810A Channel</param>
+            <param name="pdLineLineVolt">pointer to location to return the line-to-line voltage value</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetAPINullVolt(System.Int32,System.Int32,System.Double@)">
+            <summary>
+            This function sends the command to get null voltage value for the 8810A channel.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nChanNo">8810A Channel</param>
+            <param name="pdNullVolt">pointer to location to return the null voltage value</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetAPIRefVolt(System.Int32,System.Int32,System.Double@)">
+            <summary>
+            This function sends the command to get reference voltage value for the 8810A channel.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nChanNo">8810A Channel</param>
+            <param name="pdRefVolt">pointer to location to return the reference voltage value</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetAPIRefFreq(System.Int32,System.Int32,System.Double@)">
+            <summary>
+            This function sends the command to get reference frequency value for the 8810A channel.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nChanNo">8810A Channel</param>
+            <param name="pdRefFreq">pointer to location to return the reference frequency value</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.SetAPIAvgState(System.Int32,System.Int32,System.Byte)">
+            <summary>
+            This function sends the command to turn on or off the angle averaging mode
+            for the specified 8810A channel. Note the 8810A device will not accept the
+            command if its remote communication configuration does not match the
+            communication connection mode.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nChanNo">8810A Channel</param>
+            <param name="bAvgStateOn">Turn on or off angle averaging for the channel</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetAPIAvgState(System.Int32,System.Int32,System.Byte@)">
+            <summary>
+            This function sends the command to get the angle averaging mode for the 8810A channel.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nChanNo">8810A Channel</param>
+            <param name="pbAvgStateOn">pointer to location to return the angle averaging mode</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.SetAPIAvgRate(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            This function sends the command to set the angle averaging rate in msec
+            for the specified 8810A channel. Note the 8810A device will not accept the
+            command if its remote communication configuration does not match the
+            communication connection mode.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nChanNo">8810A Channel</param>
+            <param name="nAvgRate">angle averaging rate to set for the channel (10–10000 msec)</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetAPIAvgRate(System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            This function sends the command to get the angle averaging rate for the 8810A channel.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nChanNo">8810A Channel</param>
+            <param name="pnAvgRate">pointer to location to return the angle averaging rate</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.SetAPIAngLimitState(System.Int32,System.Int32,System.Byte)">
+            <summary>
+            This function sends the command to turn on or off the angle limit testing
+            mode for the specified 8810A channel. Note the 8810A device will not
+            accept the command if its remote communication configuration does not
+            match the communication connection mode.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nChanNo">8810A Channel</param>
+            <param name="bAngLmtOn">Turn on or off angle limit testing for the channel</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetAPIAngLimitState(System.Int32,System.Int32,System.Byte@)">
+            <summary>
+            This function sends the command to get the angle limit testing mode for the 8810A channel.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nChanNo">8810A Channel</param>
+            <param name="pbAngLmtOn">pointer to location to return the angle limit testing mode</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.SetAPIAngLimitCompare(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            This function sends the command to set 8810A channel specified with the
+            angle comparison mode for angle limit testing. Note the 8810A device will
+            not accept the command if its remote communication configuration does not
+            match the communication connection mode.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nChanNo">8810A Channel</param>
+            <param name="nAngLimitCompare">comparison mode for angle limit testing to set channel
+            Angle Limit Comparison Mode Types: ANGLE_LIMIT_ABS_ANG 0,ANGLE_LIMIT_ANG_ERR 1</param> 
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetAPIAngLimitCompare(System.Int32,System.Int32,System.Byte[])">
+            <summary>
+            This function sends the command to get the angle comparison mode for angle
+            limit testing for the 8810A channel.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nChanNo">8810A Channel</param>
+            <param name="pszAngLimitCompare">pointer to location to return the angle comparison
+            mode for angle limit testing</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.SetAPIAngUpperLimit(System.Int32,System.Int32,System.Double)">
+            <summary>
+            This function sends the command to set 8810A channel specified with the
+            upper angle limit value for angle limit testing. Note the 8810A device
+            will not accept the command if its remote communication configuration does
+            not match the communication connection mode.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nChanNo">8810A Channel</param>
+            <param name="dAngUpperLimit">upper angle limit value to set channel for angle limit
+            testing (0-360.0)</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetAPIAngUpperLimit(System.Int32,System.Int32,System.Double@)">
+            <summary>
+            This function sends the command to get the upper angle limit value for
+            angle limit testing for the 8810A channel.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nChanNo">8810A Channel</param>
+            <param name="pdAngUpperLimit">pointer to location to return the upper angle limit
+            value for angle limit testing</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.SetAPIAngLowerLimit(System.Int32,System.Int32,System.Double)">
+            <summary>
+            This function sends the command to set 8810A channel specified with the
+            lower angle limit value for angle limit testing. Note the 8810A device
+            will not accept the command if its remote communication configuration does
+            not match the communication connection mode.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nChanNo">8810A Channel</param>
+            <param name="dAngLowerLimit">lower angle limit value to set channel for angle limit
+            testing (0-360.0)</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetAPIAngLowerLimit(System.Int32,System.Int32,System.Double@)">
+            <summary>
+            This function sends the command to get the lower angle limit value for
+            angle limit testing for the 8810A channel.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nChanNo">8810A Channel</param>
+            <param name="pdAngLowerLimit">pointer to location to return the lower angle limit
+            value for angle limit testing</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.SetAPIAngLimitErrorStep(System.Int32,System.Int32,System.Double)">
+            <summary>
+            This function sends the command to set 8810A channel specified with the
+            angle step value for angle error comparison for angle limit testing. Note
+            the 8810A device will not accept the command if its remote communication
+            configuration does not match the communication connection mode.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nChanNo">8810A Channel</param>
+            <param name="dAngLimitErrorStep">angle step value to set channel for angle limit
+            testing (0-360.0)</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetAPIAngLimitErrorStep(System.Int32,System.Int32,System.Double@)">
+            <summary>
+            This function sends the command to get the angle step value for angle
+            error comparison for angle limit testing for the 8810A channel.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nChanNo">8810A Channel</param>
+            <param name="pdAngLimitErrorStep">pointer to location to return the angle step value
+            for angle error comparison for angle limit testing.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.SetAPIDAOutput(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            This function sends the command to set 8810A channel specified with the
+            data type to use for DA output. Note the 8810A device will not accept the
+            command if its remote communication configuration does not match the
+            communication connection mode.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nChanNo">8810A Channel</param>
+            <param name="nDAOutput">data type mode for DA output DA Output Data Types:
+            DA_ANGLE_OUTPUT 0, DA_VELOCITY_OUTPUT 1</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetAPIDAOutput(System.Int32,System.Int32,System.String)">
+            <summary>
+            This function sends the command to get the data type to use for DA output
+            for the 8810A channel.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nChanNo">8810A Channel</param>
+            <param name="pszDAOutput">pointer to location to return the data type for DA output</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.SetAPIDAUpperLimit(System.Int32,System.Int32,System.Double)">
+            <summary>
+            This function sends the command to set 8810A channel specified with the
+            upper angle or velocity limit value for DA output. Note the 8810A device
+            will not accept the command if its remote communication configuration does
+            not match the communication connection mode.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nChanNo">8810A Channel</param>
+            <param name="dDAUpperLimit">upper angle or velocity limit value to set channel for DA Output</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetAPIDAUpperLimit(System.Int32,System.Int32,System.Double@)">
+            <summary>
+            This function sends the command to get the upper angle or velocity limit
+            value for DA output for the 8810A channel.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nChanNo">8810A Channel</param>
+            <param name="pdDAUpperLimit">pointer to location to return the upper angle or velocity
+            limit for DA output.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.SetAPIDALowerLimit(System.Int32,System.Int32,System.Double)">
+            <summary>
+            This function sends the command to set 8810A channel specified with the
+            lower angle or velocity limit value for DA output. Note the 8810A device
+            will not accept the command if its remote communication configuration does
+            not match the communication connection mode.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nChanNo">8810A Channel</param>
+            <param name="dDALowerLimit">lower angle or velocity limit value to set channel for DA Output</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetAPIDALowerLimit(System.Int32,System.Int32,System.Double@)">
+            <summary>
+            This function sends the command to get the lower angle or velocity limit
+            value for DA output for the 8810A channel.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nChanNo">8810A Channel</param>
+            <param name="pdDALowerLimit">pointer to location to return the lower angle or velocity
+            limit for DA output.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.SetAPIDAUpperVoltage(System.Int32,System.Int32,System.Double)">
+            <summary>
+            This function sends the command to set 8810A channel specified with the
+            voltage value associated with the upper limit for DA output. Note the
+            8810A device will not accept the command if its remote communication
+            configuration does not match the communication connection mode.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nChanNo">8810A Channel</param>
+            <param name="dDAUpperVoltage">voltage value associated with upper limit value to set
+            channel for DA Output</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetAPIDAUpperVoltage(System.Int32,System.Int32,System.Double@)">
+            <summary>
+            This function sends the command to get the voltage value associated with
+            the upper limit value for DA output for the 8810A channel.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nChanNo">8810A Channel</param>
+            <param name="pdDAUpperVoltage">pointer to location to return the voltage value
+            associated with upper limit value for DA output.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.SetAPIDALowerVoltage(System.Int32,System.Int32,System.Double)">
+            <summary>
+            This function sends the command to set 8810A channel specified with the
+            voltage value associated with the lower limit for DA output. Note the
+            8810A device will not accept the command if its remote communication
+            configuration does not match the communication connection mode.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nChanNo">8810A Channel</param>
+            <param name="dDALowerVoltage">voltage value associated with lower limit value to set
+            channel for DA Output</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetAPIDALowerVoltage(System.Int32,System.Int32,System.Double@)">
+            <summary>
+            This function sends the command to get the voltage value associated with
+            the lower limit value for DA output for the 8810A channel.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nChanNo">8810A Channel</param>
+            <param name="pdDALowerVoltage">pointer to location to return the voltage value
+            associated with lower limit value for DA output.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.SetAPIDisplayAngDiffState(System.Int32,System.Int32)">
+            <summary>
+            This function sends the command to turn on or off the angle difference
+            mode. Note the 8810A device will not accept the command if its remote
+            communication configuration does not match the communication connection mode.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nAngDiffState">Turn on or off angle difference mode for the channel
+            Angle Difference Mode Types: ANG_DIFF_DISABLED 0, ANG_DIFF_ENABLED 1</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetAPIDisplayAngDiffState(System.Int32,System.Int32@)">
+            <summary>
+            This function sends the command to get the angle difference mode setting.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="pnAngDiffState">pointer to location to return the angle difference mode
+            Angle Difference Mode Types:ANG_DIFF_DISABLED 0,ANG_DIFF_ENABLED 1</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetAPIAngleDiff(System.Int32,System.Double@)">
+            <summary>
+            This function sends the command to get difference between angle value for
+            the Channel 1 and Channel 2 signal.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="pdAngleDiff">pointer to location to return the angle difference value</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.SetIntRefFreq(System.Int32,System.Double)">
+            <summary>
+            This function sends the command to set the reference frequency for the
+            reference module (if available). Note the 8810A device will not accept the
+            command if its remote communication configuration does not match the
+            communication connection mode.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="dFreq">Frequency value to set the reference module</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetIntRefFreq(System.Int32,System.Double@)">
+            <summary>
+            This function sends the command to get the reference frequency for the reference module.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="pdFreq">pointer to location to return the frequency value to set the reference module</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.SetIntRefVolt(System.Int32,System.Double)">
+            <summary>
+            This function sends the command to set the reference voltage for the
+            reference module (if available). Note the 8810A device will not accept the
+            command if its remote communication configuration does not match the
+            communication connection mode.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="dVolt">Voltage value to set the reference module</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetIntRefVolt(System.Int32,System.Double@)">
+            <summary>
+            This function sends the command to get the reference voltage for the reference module.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="pdVolt">pointer to location to return the voltage value to set the reference module</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.SetIntRefOutputState(System.Int32,System.Int32)">
+            <summary>
+            This function sends the command to set the reference output state for the
+            reference module (if available). Note the 8810A device will not accept the
+            command if its remote communication configuration does not match the
+            communication connection mode.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nOutputState">Output state value to set the reference module Reference Output States:
+            INT_REF_OUT_NOT_AVAILABLE 0,INT_REF_OUT_AVAILABLE 1</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetIntRefOutputState(System.Int32,System.Int32@)">
+            <summary>
+            This function sends the command to get the reference output state for the reference module.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="pnOutputState">pointer to location to return the reference output state to set the reference module
+            Reference Output States: INT_REF_OUT_NOT_AVAILABLE 0, INT_REF_OUT_AVAILABLE 1</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetIntRefOverCurrentState(System.Int32,System.Byte@)">
+            <summary>
+            This function sends the command to get the reference over-current state for the reference module.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="pbIntRefOverCurrent">pointer to location to return the reference overcurrent
+            state to set the reference module Reference Over-current States:
+            true - Reference is in over-current state
+            false - Reference is not in over-current state</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.ResetIntRefOverCurrent(System.Int32)">
+            <summary>
+            This function sends the command to reset the reference over-current state
+            for the reference module (if available).
+            Note the 8810A device will not accept the command if its remote
+            communication configuration does not match the communication connection mode.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.PerformGetID(System.Int32,System.String@)">
+            <summary>
+            This function sends the IDN command to get Device ID string for the
+            device. The ID returned includes the manufacturer (NORTH ATLANTIC), the
+            8810A module, serial number, and revision information.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="pszID">pointer to location to return the device ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.Reset(System.Int32,System.String)">
+            <summary>
+            This function sends the command to reset the 8810A device and set the
+            device setting back to the factory default settings. Note the 8810A device
+            will not accept the command if its remote communication configuration does
+            not match the communication connection mode.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="pszResults">pointer to location to return the results of the reset command.
+            Return results:“Reset Complete” – reset has been successful.
+                           “Reset Not Performed” – reset has not been successful.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetErrors(System.Int32,System.String)">
+            <summary>
+            This function sends the ERR command to get error from the error queue for
+            the device. “No error” is returned when there are no errors on the queue.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="pszErrors">pointer to location to return the error string</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetIEEELang(System.Int32,System.String)">
+            <summary>
+            This function sends the command to get the IEEE language protocol set in the 8810A.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="pszIEEELang">pointer to location to return the IEEE protocol string
+            Return values:
+            “API8810A Native” – API-8810A Native
+            “API8810 Native” - API-8810 Native (Legacy)
+            “API8810 SR103” - API-8810 SR103 (Legacy)
+            “API8810 HSR202” - API-8810 HSR202 (Legacy)
+            “API8810 HSR203” - API-8810 HSR203 (Legacy)
+            “API8810 MATE/CIIL” – API-8810 MATE/CIIL (Legacy)
+            “API8810 FX2” - API-8810 FX2</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.SetIEEELang(System.Int32,System.Int32)">
+            <summary>
+            This function sends the command to set the IEEE protocol language to
+            accept when communicating via IEEE. Note the 8810A device will not accept
+            the command if its remote communication configuration does not match the
+            communication connection mode.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nIEEELang">Language Protocol to be used to communicate via IEEE to 8810A.
+            8810A Language Types: API8810A_NATIVE 0
+                                  IEEE_API8810_NATIVE 1
+                                  IEEE_API8810_SR103 2
+                                  IEEE_API8810_HSR202 3
+                                  IEEE_API8810_HSR203 4
+                                  IEEE_API8810_MATECIIL 5
+                                  IEEE_API8810_FX2 6</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetCommState(System.Int32,System.String)">
+            <summary>
+            This function sends the command to get the communication mode set in the 8810A.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="pszCommState">pointer to location to return the communication mode string
+            Return values: “Local Mode”
+                           “Remote IEEE Addr: API-IEEE Language”
+                           “Remote USB”
+                           “Remote Ethernet”
+                           “Remote J1”
+                           “Remote with Lockout via IEEE Addr: API-IEEE Language”
+                           “Remote with Lockout via USB”
+                           “Remote with Lockout via Ethernet”
+                           “Remote with Lockout via J1”</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GoToLocal(System.Int32)">
+            <summary>
+            This function sends the command to set the communication mode to Local
+            mode. In Local mode, remote “set” commands will not be accepted.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.SetLocalLockout(System.Int32)">
+            <summary>
+            This function sends the command to lockout configuration setting such as
+            track or hold, signal mode, reference mode, and ratio setting from the
+            8810A front panel. Note the 8810A device will not accept the command if
+            device is set to Local mode.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.SetRemoteUSB(System.Int32)">
+            <summary>
+            This function sends the command to set the communication mode to Remote
+            USB mode. In Remote USB mode, remote “set” commands will be accepted if
+            the command is received from the USB interface.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.SetRemoteEthernet(System.Int32)">
+            <summary>
+            This function sends the command to set the communication mode to Remote
+            Ethernet mode. In Remote Ethernet mode, remote “set” commands will be
+            accepted if the command is received from the Ethernet interface.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.SetRemoteIEEE(System.Int32)">
+            <summary>
+            This function sends the command to set the communication mode to Remote
+            IEEE mode. In Remote IEEE mode, remote “set” commands will be accepted if
+            the command is received from the IEEE interface.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.SetRemoteJ1(System.Int32)">
+            <summary>
+            This function sends the command to set the communication mode to Remote J1
+            mode. In Remote J1 mode, remote “set” commands will be accepted if the
+            command is received from the J1 interface.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.SetAngleDisplayFormat(System.Int32,System.Int32)">
+            <summary>
+            This function sends the command to set the angle display format. Note the
+            8810A device will not accept the command if its remote communication
+            configuration does not match the communication connection mode.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nDisplayFormat">angle format to display on the 8810A.
+            Angle Display Format Types: 0- ANGLE_FMT_360 0, 1- ANGLE_FMT_180, 2 ANGLE_FMT_MIN.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetAngleDisplayFormat(System.Int32,System.Int32@)">
+            <summary>
+            This function sends the command to get the angle display format set in the 8810A.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="pnDisplayFormat">pointer to location to return the angle display format
+            Angle Display Format Types: 0- ANGLE_FMT_360 0, 1- ANGLE_FMT_180, 2 ANGLE_FMT_MIN. </param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.SetCh1Input(System.Int32,System.Int32)">
+            <summary>
+            This function sends the command to set the Channel 1 input connector
+            configuration. Note the 8810A device will not accept the command if its
+            remote communication configuration does not match the communication connection mode.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nCh1InputConnector">Channel 1 input connector configuration on the 8810A
+            Channel 1 Input Configuration Types: 0- CH1_INPUT_FRONT_CONNECTOR 0, 1- CH1_INPUT_BACK_CONNECTOR.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetCh1Input(System.Int32,System.Int32@)">
+            <summary>
+            This function sends the command to get the Channel 1 input connector
+            configuration set in the 8810A.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nCh1InputConnector">Channel 1 input connector configuration on the 8810A
+            Channel 1 Input Configuration Types: 0- CH1_INPUT_FRONT_CONNECTOR 0, 1- CH1_INPUT_BACK_CONNECTOR.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.SetTouchscreenState(System.Int32,System.Int32)">
+            <summary>
+            This function sends the command to set the touch screen configuration.
+            Note the 8810A device will not accept the command if its remote
+            communication configuration does not match the communication connection mode.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nTouchscreenState">Touch screen configuration on the 8810A
+            Touch screen Configuration Types: TOUCHSCREEN_DISABLED 0,TOUCHSCREEN_ENABLED 1   </param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetTouchscreenState(System.Int32,System.Int32@)">
+            <summary>
+            This function sends the command to get the touch screen configuration set in the 8810A.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="pnTouchscreenState">pointer to location to return the touch screen configuration
+            Touchscreen Configuration Types: TOUCHSCREEN_DISABLED 0,TOUCHSCREEN_ENABLED 1   </param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.SetDisplayState(System.Int32,System.Int32)">
+            <summary>
+            This function sends the command to set the main display state.
+            Note the 8810A device will not accept the command if its remote
+            communication configuration does not match the communication connection mode.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nDisplayState">Display configuration on the 8810A
+            Display Configuration Types: 
+            CHAN1_DISPLAY 0
+            CHAN2_DISPLAY 1
+            CHAN1_ANALOG_DISPLAY 2
+            CHAN2_ANALOG_DISPLAY 3
+            DUAL_DISPLAY 4
+            REFERENCE_DISPLAY 5
+            CHARTING_DISPLAY 6</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetDisplayState(System.Int32,System.Int32@)">
+             <summary>
+            This function sends the command to get the main display configuration on the 8810A.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="pnDisplayState">pointer to location to return the main screen configuration state.
+            Main Screen Configuration Types: 
+            CHAN1_DISPLAY 0
+            CHAN2_DISPLAY 1
+            CHAN1_ANALOG_DISPLAY 2
+            CHAN2_ANALOG_DISPLAY 3
+            DUAL_DISPLAY 4
+            REFERENCE_DISPLAY 5
+            CHARTING_DISPLAY 6    </param>
+             <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.ResetDefaultValues(System.Int32)">
+             <summary>
+             This function sends the command to set the device setting back to the
+             factory default settings. This command will also reset the calibration
+             values and a calibration of the device is recommended after issuing this
+             command. Note the 8810A device will not accept the command if its remote
+            communication configuration does not match the communication connection mode.
+             </summary>
+             <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+             <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetCalState(System.Int32,System.String)">
+            <summary>
+            This function sends the command to get the calibration state of the 8810A.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="pszCalState">pointer to location to return the calibration state string.
+            Return values: “CAL DONE” or “CALIBRATING”.
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.Calibrate(System.Int32)">
+            <summary>
+            This function sends the command to calibrate the 8810A. Note the 8810A
+            device will not accept the command if its remote communication
+            configuration does not match the communication connection mode.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.SetAPIPeriodicCalState(System.Int32,System.Int32)">
+            <summary>
+            This function sends the command to turn on or off the periodic
+            calibration for both channels. Note the 8810A device will not accept the
+            command if its remote communication configuration does not match the
+            communication connection mode.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nPeriodicCalState">Turn on or off periodic calibration for both channels.
+            Periodic Calibration Types: PERIODIC_CAL_DISABLED 0, PERIODIC_CAL_ENABLED 1</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetAPIPeriodicCalState(System.Int32,System.Int32@)">
+            <summary>
+            This function sends the command to get the periodic calibration setting.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="pnPeriodicCalState">pointer to location to return the periodic calibration state 
+            Periodic Calibration Types: PERIODIC_CAL_DISABLED 0, PERIODIC_CAL_ENABLED 1.</param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:DeviceManager.API8810Manager.GetSampleRate(System.Int32,System.Int32@)" -->
+        <member name="M:DeviceManager.API8810Manager.GetSampleRateUnit(System.Int32,System.Int32@)">
+            <summary>
+            This function sends the command to get the sample rate set for angle,
+            angle error, or angle velocity buffering in the 8810A.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="pnSampleRateUnit">pointer to location to return the sample rate units
+            Sample Rate Unit Types: SAMPLE_RATE_MSEC 0, SAMPLE_RATE_SEC 1, SAMPLE_RATE_MIN 2</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.SetSampleRate(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            This function sends the command to set the sample rate set for angle,
+            angle error, or angle velocity buffering in the 8810A. Note the 8810A
+            device will not accept the command if its remote communication
+            configuration does not match the communication connection mode.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nSampleRate">Sample Rate to set for data buffering</param>
+            <param name="nSampleRateUnit">Sample Rate Unit to set for data buffering
+            Sample Rate Unit Types: SAMPLE_RATE_MSEC 0, SAMPLE_RATE_SEC 1, SAMPLE_RATE_MIN 2 .</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetSampleType(System.Int32,System.String)">
+            <summary>
+            This function sends the command to get the data type being buffering in the 8810A.
+            </summary> 
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="pszSampleType">pointer to location to return the data type being buffered
+            Return values: “ANG”, “ANGERR”, “VEL”</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.SetSampleType(System.Int32,System.Int32)">
+            <summary>
+            This function sends the command to set the data type to buffer in the
+            8810A. Note the 8810A device will not accept the command if its remote
+            communication configuration does not match the communication connection mode.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nSampleType">Sample Rate to set for data buffering
+            Sample Data Types: BUF_ANGLE 0, BUF_ANGERR 1, BUF_VELOCITY 2</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetPlotChan(System.Int32,System.String)">
+            <summary>
+            This function sends the command to get the channel being plotted in the 8810A chart.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="pszPlotChan">pointer to location to return the channel being plotted
+            Return values: “BOTH”
+                           “CH1”    </param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.SetPlotChan(System.Int32,System.Int32)">
+            <summary>
+            This function sends the command to set the channel to plot in the 8810A.
+            Note the 8810A device will not accept the command if its remote
+            communication configuration does not match the communication connection mode.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nPlotChan">Channel to plot
+            Channel Plot Types: PLOT_BOTH_CHAN 0, PLOT_CHAN1 1, PLOT_CHAN2 2</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetAngleErrStep(System.Int32,System.Double@)">
+            <summary>
+            This function sends the command to get the angle step value for angle
+            error comparison for 8810A data buffering.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="pdAngErrStep">pointer to location to return the angle step value for
+            angle error comparison for 8810A data buffering.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.SetAngleErrStep(System.Int32,System.Double)">
+            <summary>
+            This function sends the command to set the angle step value for angle
+            error comparison for 8810A data buffering. Note the 8810A device will not
+            accept the command if its remote communication configuration does not
+            match the communication connection mode.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="dAngErrStep">Angle step value for angle error comparison for data
+            buffering</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetLowerRange(System.Int32,System.Double@)">
+            <summary>
+            This function sends the command to get the expected lower range value for 8810A charting.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="pdLowerRange">pointer to location to return expected lower range value
+            for 8810A charting.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.SetLowerRange(System.Int32,System.Double)">
+             <summary>
+             This function sends the command to set the expected lower range value for
+            8810A charting. Note the 8810A device will not accept the command if its
+            remote communication configuration does not match the communication connection mode.
+             </summary>
+             <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+             <param name="dLowerRange">Expected lower range value for 8810A charting</param>
+             <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetUpperRange(System.Int32,System.Double@)">
+            <summary>
+            This function sends the command to get the expected upper range value for 8810A charting.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="pdUpperRange">pointer to location to return expected upper range value
+            for 8810A charting.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.SetUpperRange(System.Int32,System.Double)">
+            <summary>
+            This function sends the command to set the expected upper range value for
+            8810A charting. Note the 8810A device will not accept the command if its
+            remote communication configuration does not match the communication connection mode.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="dUpperRange">Expected upper range value for 8810A charting</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetRecordingState(System.Int32,System.String)">
+            <summary>
+            This function sends the command to get the recording state for 8810A data buffering.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="pszRecState">pointer to location to return the recording state for 8810A
+            data buffering
+            Return values: “NOT RECORDING”, “RECORDING”  </param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.SetRecordingState(System.Int32,System.Int32)">
+            <summary>
+            This function sends the command to start recording, stop recording or
+            clear the data buffer. Note the 8810A device will not accept the command
+            if its remote communication configuration does not match the communication connection mode.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nRecState">Buffer Recording command state
+            Buffer Recording Command Types: BUFFER_REC_STOP 0, BUFFER_REC_START 1, BUFFER_REC_CLEAR 2</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetBufferCnt(System.Int32,System.Int32@)">
+            <summary>
+            This function sends the command to get the number of data elements in 8810A data buffer.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="pnBufCnt">pointer to location to return the number of data elements in
+            data buffer.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.GetBufferData(System.Int32,System.Int32,System.Int32,System.Int32,System.Byte[])">
+            <summary>
+            This function sends the command to get data elements in 8810A data buffer.
+            The number of data elements is the same for Channel 1 and Channel 2. Note
+            data buffer retrieval is available only via USB or Ethernet. Via USB, the
+            maximum number of records returned for each call is 5 data elements. Via
+            Ethernet, the maximum number of records returned for each call is 150 data elements.
+            </summary>
+            <param name="apiNo">Logical API number assigned to connection with 8810A (1-MAX_API)</param>
+            <param name="nChannel">Channel to retrieve data</param>
+            <param name="nStartRec">Record number (1 for the first record) to first element to retrieve</param>
+            <param name="nEndRec">Record number of last element to retrieve</param>
+            <param name="pszBufData">pointer to location to return data elements in data buffer
+            that has been retrieved.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.API8810Manager.MaxRetry(System.Int32)">
+            <summary>
+            This function sets the maximum retries to send a command or read a
+            response that will be made when communicating via IEEE. The default value is 0.
+            </summary>
+            <param name="nMaxRetry">maximum retries for IEEE communication</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

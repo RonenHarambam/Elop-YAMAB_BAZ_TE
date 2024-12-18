@@ -1,0 +1,32 @@
+{
+  "UutProperties": [
+    {
+      "Deleted": false,
+      "PropertyId": 10,
+      "UUTPropertyValuesOptions": [],
+      "DisplayInReportFileName": 0,
+      "PrintInClusterReport": 0,
+      "GuiVisible": 1,
+      "Required": 0,
+      "ReadOnly": 0,
+      "ArchiveFormVisible": 1,
+      "PropertyCaption": "S\\N",
+      "PropertyValue": null
+    },
+    {
+      "Deleted": false,
+      "PropertyId": 11,
+      "UUTPropertyValuesOptions": [
+        "Z-9515-1010-00"
+      ],
+      "DisplayInReportFileName": 0,
+      "PrintInClusterReport": 0,
+      "GuiVisible": 1,
+      "Required": 0,
+      "ReadOnly": 0,
+      "ArchiveFormVisible": 1,
+      "PropertyCaption": "P\\N",
+      "PropertyValue": null
+    }
+  ]
+}

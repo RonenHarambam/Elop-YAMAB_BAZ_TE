@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LambdaGenPSManagerRS232</name>
+    </assembly>
+    <members>
+        <member name="T:DeviceManager.LambdaGenPSManagerRS232">
+            <summary>
+            Date - 8 April 2015
+            
+            </summary>
+        </member>
+        <member name="M:DeviceManager.LambdaGenPSManagerRS232.Connect(System.Int32,System.Int32)">
+            <summary>
+            Connect to the power supply using via the specified port.
+            </summary>
+            <param name="port">Port number.</param>
+            <param name="baudRate">Default 9600</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.LambdaGenPSManagerRS232.CloseConnection">
+            <summary>
+            Close opened connection with power supply.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.LambdaGenPSManagerRS232.SetAddress(System.Int32)">
+            <summary>
+            Set target ps address for subsequent communications
+            </summary>
+            <param name="address">1 to 30</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.LambdaGenPSManagerRS232.SetOutput(System.Int32)">
+            <summary>
+            Sets the output On or Off.
+            </summary>
+            <param name="mode">Off-0; On-1 </param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.LambdaGenPSManagerRS232.GetResponse">
+             <summary>
+             
+             </summary>
+            
+             <returns></returns>
+        </member>
+        <member name="M:DeviceManager.LambdaGenPSManagerRS232.SetOutputVoltage(System.Double)">
+            <summary>
+            Sets the output voltage value in volts.
+            </summary>
+            <param name="voltage">Voltage to set.</param>
+        </member>
+        <member name="M:DeviceManager.LambdaGenPSManagerRS232.SetOutputVoltageDirect(System.Double,System.Int32)">
+            <summary>
+            Sets the output voltage value in volts.
+            </summary>
+            <param name="voltage">Voltage to set.</param>
+            <param name="psAddress">PS address</param>
+        </member>
+        <member name="M:DeviceManager.LambdaGenPSManagerRS232.SetOverVoltageProtection(System.Double)">
+            <summary>
+            Sets the over voltage protection level in volts.
+            </summary>
+            <param name="voltage">Over voltage value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.LambdaGenPSManagerRS232.SetOutputCurrent(System.Double)">
+            <summary>
+            Sets the output current in Ampers.
+            </summary>
+            <param name="current">Current to set.</param>
+        </member>
+        <member name="M:DeviceManager.LambdaGenPSManagerRS232.SetRemoteMode(System.Int32)">
+            <summary>
+            Sets the power supply to local or remote mode.
+            </summary>
+            <param name="mode">0 - Local; 1 - Remote; 2 - Local lockout mode(latched remote mode)</param>
+        </member>
+        <member name="M:DeviceManager.LambdaGenPSManagerRS232.ParseRespones(System.String,System.String)">
+            <summary>
+            In case the response contains at the beginning the cmd,remove it from the response
+            </summary>
+            <param name="cmd"></param>
+            <param name="response"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.LambdaGenPSManagerRS232.GetOutputVoltage(System.Double@)">
+            <summary>
+            Return the output voltage. 
+            </summary>
+            <param name="voltage">Set voltage</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.LambdaGenPSManagerRS232.GetActualOutputVoltage(System.Double@)">
+            <summary>
+            Return the actual output voltage.
+            </summary>
+            <param name="voltage">Actual voltage</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.LambdaGenPSManagerRS232.GetOutputCurrent(System.Double@)">
+            <summary>
+            Return the output Current.
+            </summary>
+            <param name="current"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.LambdaGenPSManagerRS232.GetActualOutputCurrent(System.Double@)">
+            <summary>
+            Return the actual output current of the power suppl.
+            </summary>
+            <param name="current"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.LambdaGenPSManagerRS232.GetId(System.String@)">
+            <summary>
+            Return the power supply model identification.
+            </summary>
+            <param name="id">power supply model identification</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.LambdaGenPSManagerRS232.GetOutput(System.Int32@)">
+            <summary>
+            Return the output mode;
+            </summary>
+            <param name="mode">0 -Off; 1-On</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.LambdaGenPSManagerRS232.GetRemoteMode(System.Int32@)">
+            <summary>
+            Return the remote mode setting
+            </summary>
+            <param name="mode">0 -Local; 1-Remote; 2 - LLO</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

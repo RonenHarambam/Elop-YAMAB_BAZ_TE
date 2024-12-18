@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>YAMAB_Utilities</name>
+    </assembly>
+    <members>
+        <member name="F:YAMAB_Utilities.FrmBar.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:YAMAB_Utilities.FrmBar.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:YAMAB_Utilities.FrmBar.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:YAMAB_Utilities.FrmControlSimple.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:YAMAB_Utilities.FrmControlSimple.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:YAMAB_Utilities.FrmControlSimple.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:YAMAB_Utilities.FrmControl.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:YAMAB_Utilities.FrmControl.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:YAMAB_Utilities.FrmControl.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:YAMAB_Utilities.YAMAB_Utilities.DisplayControlForm(System.Double@,System.Byte@,System.Object,System.String,System.String,System.String,System.String,YAMAB_Utilities.YAMAB_Utilities.ButtonsType,System.Double,System.Double,System.Double,System.Double,System.Int32,System.Int32,System.Byte,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="parameterValue"></param>
+            <param name="result">0:Pass; 1:Fail</param>
+            <param name="controllerInstance"></param>
+            <param name="testName"></param>
+            <param name="testMessage"></param>
+            <param name="parameterCaption"></param>
+            <param name="btnOKCaption"></param>
+            <param name="buttonsType"></param>
+            <param name="movementBigStep_mrad"></param>
+            <param name="movementSmallStep_mrad"></param>
+            <param name="initialPosAZ"></param>
+            <param name="initialPosEL"></param>
+            <param name="frmPosX"></param>
+            <param name="frmPosY"></param>
+            <param name="initialPosActive"></param>
+        </member>
+        <member name="M:YAMAB_Utilities.YAMAB_Utilities.SetSyncronizationContext(System.Threading.SynchronizationContext)">
+            <summary>
+            Use for displaying a none modal form.
+            </summary>
+            <param name="syncContext"></param>
+        </member>
+    </members>
+</doc>

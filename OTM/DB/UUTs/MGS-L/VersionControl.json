@@ -1,0 +1,26 @@
+[
+  {
+    "Version": "1.1.0.0.0",
+    "Author": "Orion",
+    "MessageDate": "2023-11-05T14:58:40.0738092+02:00",
+    "Message": "update masege in test of\r\nelectrical and mechanical borshit  after ESS\r\nto make them more understandable "
+  },
+  {
+    "Version": "1.2.0.0.0",
+    "Author": "Orion",
+    "MessageDate": "2023-12-03T10:57:27.013072+02:00",
+    "Message": "update friction elevation high limit and max limit"
+  },
+  {
+    "Version": "1.2.1.0.0",
+    "Author": "Orion",
+    "MessageDate": "2024-01-28T11:58:27.8124596+02:00",
+    "Message": "friction limit"
+  },
+  {
+    "Version": "1.2.2.0.0",
+    "Author": "Orion",
+    "MessageDate": "2024-12-17T12:42:53.1383212+02:00",
+    "Message": ""
+  }
+]

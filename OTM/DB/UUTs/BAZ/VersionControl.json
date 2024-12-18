@@ -1,0 +1,14 @@
+[
+  {
+    "Version": "1.1.0.0.0",
+    "Author": "Orion",
+    "MessageDate": "2023-12-03T10:58:38.1732382+02:00",
+    "Message": "update elevation friction highe limit graph and max value"
+  },
+  {
+    "Version": "1.1.1.0.0",
+    "Author": "Orion",
+    "MessageDate": "2024-01-28T11:58:17.4597878+02:00",
+    "Message": "friction limit"
+  }
+]

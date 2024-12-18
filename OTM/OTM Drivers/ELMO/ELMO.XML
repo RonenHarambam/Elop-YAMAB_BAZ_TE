@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ELMO</name>
+    </assembly>
+    <members>
+        <member name="M:ELMO.ElmoManager.GetMotionStatus(System.Int32@)">
+            <summary>
+            See document...
+            </summary>
+            <param name="response">0:position reached the actual position; 1:position reached actual position but out of position window ; 2:In motion; 3:motor disabled</param>
+        </member>
+        <member name="M:ELMO.ElmoManager.GetInputBit_1(System.Int32@)">
+            <summary>
+            Read bit 1 from the input register
+            Use for hall effect test
+            </summary>
+            <param name="response"></param>
+        </member>
+        <member name="M:ELMO.ElmoManager.GetInputBit_2(System.Int32@)">
+            <summary>
+            Read bit 2 from the input register
+            Use for hall effect test
+            </summary>
+            <param name="response"></param>
+        </member>
+        <member name="M:ELMO.ElmoManager.SetZeroPosition">
+            <summary>
+            Works only if motor is disabled
+            </summary>
+            <param name="response"></param>
+        </member>
+        <member name="M:ELMO.ElmoManager.SetMotorMode(System.Int32,System.String@)">
+            <summary>
+            
+            </summary>
+            <param name="enable">1:Enable; 0:Disable</param>
+        </member>
+        <member name="M:ELMO.ElmoManager.GetMotorMode(System.Int32@)">
+            <summary>
+            
+            </summary>
+            <param name="mode">1:Enable; 0:Disable</param>
+        </member>
+    </members>
+</doc>

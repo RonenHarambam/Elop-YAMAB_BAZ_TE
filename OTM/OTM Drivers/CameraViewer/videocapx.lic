@@ -1,0 +1,39 @@
+VideoCapX ActiveX control - Fath Software - All rights reserved
+
+
+License agreement
+
+
+This Limited Use Software License Agreement (the "Agreement") is a legal agreement between you, the end-user ("Licensee"), and author. By using this software or storing this program ("Fath VideoCapX") on a computer hard drive or other media), you are agreeing to be bound by the terms of this Agreement. 
+
+You may not alter this software in any way, including changing or removing any messages or windows. 
+
+You may not decompile, reverse engineer, disassemble or otherwise reduce this software to a human perceivable form. You may not modify, rent or resell for profit this software. You may not publicize or distribute any registration code algorithms, information, or registration codes used by this software without permission of author.
+
+
+Author grants a license to use the enclosed software to the original purchaser.
+Customer written applications containing embedded Fath Mail may be freely distributed, without royalty payments to author, provided that such distributed product is bound into these applications in such a way so as to prohibit separate use in design mode, and that such product is distributed only in conjunction with the customer's own software product.
+This control may be used as a constituent control only if the compound control thus created is distributed with and as an integral part of an application. This license may be transferred to a third party only if all existing copies of the software and its documentation are also transferred.
+
+This product is licensed for use by only one developer at a time. Author expressly prohibits installing this product on more than one computer if there is any chance that both copies will be used simultaneously. This restriction also extends to installation on a network server, if more than one workstation will be accessing the product. All developers working on a project which includes an Fath Mail product, even though not working directly with the Fath Mail product, are required to purchase a license for that product.
+
+This software is provided "as is". Author makes no warranty, expressed or implied, with regard to the software. All implied warranties, including the warranties of merchantability and fitness for a particular use, are hereby excluded.
+AUTHOR'S LIABILITY IS LIMITED TO THE PURCHASE PRICE. Under no circumstances shall author of this product be liable for any incidental or consequential damages, nor for any damages in excess of the original purchase price.
+
+Plain English version:
+
+We require that you purchase one copy of a control per developer on a project. If this is met, you may distribute the control with your application royalty free. You may never distribute the LIC file. You may not change the product in any way that removes or changes the requirement of a license file.
+We encourage the use of our controls as constituent controls when the compound controls you create are an integral part of your application. But we don't allow distribution of our controls as constituents of other controls when the compound control is not part of an application. The reason we need to have this restriction is that without it someone might decide to use our control as a constituent, add some trivial (or even non-trivial) enhancements and then sell the compound control. Obviously there would be little difference between that and just plain reselling our control.
+
+If you have purchased the source code, you may not re-distribute the source code either (nor may you copy it into your own project). Author retains the copyright to the source code.
+Your license is transferable. The original purchaser of the product must make the transfer request. Contact us for further information.
+The sample versions of our products are intended for evaluation purposes only. You may not use the sample version to develop completed applications.
+
+
+
+
+
+
+
+
+

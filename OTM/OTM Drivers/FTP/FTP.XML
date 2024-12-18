@@ -1,0 +1,202 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FTP</name>
+    </assembly>
+    <members>
+        <member name="T:DeviceManager.FTP">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:DeviceManager.FTP.GetFileSize(System.String,System.String,System.String,System.String,System.Double@)">
+            <summary>
+            Get file size from the FTP server.
+            </summary>
+            <param name="ftpServerIp">The server Id.</param>
+            <param name="ftpUserId">FTP user id.</param>
+            <param name="ftpPassword">FTP password</param>
+            <param name="filePath">Full file path in the format FolderA/FolderB</param>
+            <param name="fileSize">File size in KB.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.FTP.UploadFile(System.String,System.String,System.String,System.String,System.String,System.Byte,System.Byte)">
+            <summary>
+            Upload the specified file to the specified FTP Server.
+            </summary>
+            <param name="ftpServerIp">The server Id.</param>
+            <param name="ftpUserId">FTP user id.</param>
+            <param name="ftpPassword">FTP password</param>
+            <param name="srcFilePath">Full file path to be uploaded.</param>
+            <param name="dstPath">Folder which the should be uploaded. If file you want to upload file to the root(in the FTP server) then this parameter should get null. Folder path should be in the format 'FolderA/FolderB'</param>
+            <param name="validateUploadSize">Indicates if file size should be uploaded after each file that is loaded.</param>
+            <param name="numOfRetries">Number of upload retriesin case of upload failure.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.FTP.UploadFolder(System.String,System.String,System.String,System.String,System.String,System.Byte,System.Byte)">
+            <summary>
+            Upload folder to the the specified folder in the FTP server.
+            </summary>
+            <param name="ftpUserId">FTP user id.</param>
+            <param name="ftpPassword">FTP password.</param>
+            <param name="ftpServerIp">FTP server Id.</param>
+            <param name="srcFolderPath">Folder to load files from.</param>
+            <param name="dstFolderPath">FTP folder to load files to.</param>
+            <param name="validateUploadSize">Indicates if file size should be uploaded after each file that is loaded.</param>
+            <param name="numOfRetries">Number of upload retriesin case of upload failure.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.FTP.DownloadFile(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Download file form the specified folder Use this function.
+            </summary>
+            <param name="ftpServerIp">The server Id.</param>
+            <param name="ftpUserId">FTP user id.</param>
+            <param name="ftpPassword">FTP password</param>
+            <param name="dstPath">Path that the downladed file will be save to.</param>
+            <param name="srcFilePath">File path which should be downloaded from the FTP</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.FTP.GetFileList(System.String,System.String,System.String,System.String,System.String[]@,System.String[]@,System.Boolean)">
+            <summary>
+            Return the files stored in the 'srcFolderPath'.
+            </summary>
+            <param name="ftpServerIp"></param>
+            <param name="ftpUserId"></param>
+            <param name="ftpPassword"></param>
+            <param name="srcFolderPath"></param>
+            <param name="files"></param>
+            <param name="includeFolders">Indicates if list should contain directories</param>
+        </member>
+        <member name="M:DeviceManager.FTP.DownloadFolder(System.String,System.String,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="ftpUserId"></param>
+            <param name="ftpPassword"></param>
+            <param name="srcFolderPath"></param>
+            <param name="dstFolderPath"></param>
+            <param name="ftpServerIp"></param>
+            <param name="includeSubFolder">Set to true to download file from sub folders</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.FTP.DeleteFile(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Delete file using the specified FTP parameters.
+            </summary>
+            <param name="ftpServerIp">The server Id.</param>
+            <param name="ftpUserId">FTP user id.</param>
+            <param name="ftpPassword">FTP password</param>
+            <param name="ftpFolder">Folder path to delete from.</param>
+            <param name="ftpFileName">File name to delete.</param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:NetUtilities.FTPManager.UploadFolder(System.String,System.String,System.String)" -->
+        <member name="M:NetUtilities.FTPManager.DownloadFolder(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Download all srcFolderPath content to dstFolderPath. We assume that destination folder already exists.
+            Use this function when you do not want to use the server ip which the class was initiate with.
+            </summary>
+            <param name="srcFolderPath"></param>
+            <param name="dstFolderPath"></param>
+            <param name="serverIp"></param>
+            <param name="includeSubFolder">Set to true to download file from sub folders</param>
+        </member>
+        <member name="M:NetUtilities.FTPManager.UploadFolder(System.String,System.String)">
+            <summary>
+            Upload all srcFolderPath content to dstFolderPath. We assume that destination folder already exists.
+            Use this function when you want to use the server ip which the class was initiate with.
+            </summary>
+            <param name="srcFolderPath"></param>
+            <param name="dstFolderPath"></param>
+        </member>
+        <member name="M:NetUtilities.FTPManager.Download(System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="filePath"></param>
+            <param name="dstPath">Full file path</param>
+            <param name="ftpServerIp"></param>
+        </member>
+        <member name="M:NetUtilities.FTPManager.Download(System.String,System.String,System.String,System.String)">
+             <summary>
+             Use this function when you want to get the download status by events.
+             </summary>
+             <param name="folderSrcPath">folder which file should be download from</param>
+             <param name="fileNameSrc">name of the file which should be downloaded from the FTP </param>
+            <param name="dstPath">path that the downladed file will be save to</param>
+            <param name="ftpServerIp">If null we are using the IP which the class was constructed with.</param>
+        </member>
+        <member name="M:NetUtilities.FTPManager.Upload(System.String,System.String,NetUtilities.FTPManager.delReportProgress,System.String)">
+            <summary>
+            In case you want to use events delReportProgress should be set to null
+            </summary>
+            <param name="fileNameSrc"></param>
+            <param name="dstFolderPath"></param>
+            <param name="reportProgressFunc">In case you want to use events  should be set to null</param>
+            <param name="serverIp"></param>
+        </member>
+        <member name="M:NetUtilities.FTPManager.Upload(System.String,System.String,NetUtilities.FTPManager.delReportProgress)">
+            <summary>
+            Method to upload the specified file to the specified FTP Server.
+            The function should does not handle exception. The client should pad
+            the calling with try and catch.
+            </summary>
+            <param name="fileNameSrc">file full name(+path) to be uploaded</param>
+            <param name="dstFolderPath">folder which the should be uploaded. If file
+            you want to upload file to the root(in the FTP server) then this parameter
+            should get null.
+            Folder path should be in the format 'FolderA/FolderB'
+            </param>
+        </member>
+        <member name="M:NetUtilities.FTPManager.Download(System.String,System.String,System.String,NetUtilities.FTPManager.delReportProgress)">
+             <summary>
+             
+             </summary>
+             <param name="folderSrcPath">folder which file should be download from</param>
+             <param name="fileNameSrc">name of the file which should be downloaded from the FTP </param>
+            <param name="dstPath">path that the downladed file will be save to</param>
+        </member>
+        <member name="M:NetUtilities.FTPManager.GetFiledDetailedList(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="folderPath">To list files in the root this parameter should be
+            null.
+            </param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:NetUtilities.FTPManager.GetFiledDetailedListParsed(System.String,System.String,System.String[]@,System.Boolean)" -->
+        <member name="M:NetUtilities.FTPManager.GetFileList(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="folderPath">To list files in the root this parameter should be
+            null.
+            </param>
+        </member>
+        <member name="P:NetUtilities.FTPManager.UploadNumOfRetries">
+            <summary>
+            Used in case ValidateUploadSize is set to 1. Indicates how many times upload is done before exception is thrown in case upload failed.
+            </summary>
+        </member>
+        <member name="P:NetUtilities.FTPManager.ValidateUploadSize">
+            <summary>
+            Set to true in case you want to validate the file size after it uploaded.
+            </summary>
+        </member>
+        <member name="M:NetUtilities.FTPManager.TransferAbortEventArg.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="precent"></param>
+            <param name="numOfBytes">Currently not used.</param>
+        </member>
+        <member name="M:NetUtilities.FTPManager.TransferProgressEventArg.#ctor(System.Double,System.Double)">
+            <summary>
+            
+            </summary>
+            <param name="precent"></param>
+            <param name="numOfBytes">Currently not used.</param>
+        </member>
+    </members>
+</doc>

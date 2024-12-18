@@ -1,0 +1,69 @@
+{
+  "UutProperties": [
+    {
+      "Deleted": false,
+      "PropertyId": 12,
+      "UUTPropertyValuesOptions": [],
+      "DisplayInReportFileName": 1,
+      "PrintInClusterReport": 0,
+      "GuiVisible": 1,
+      "Required": 0,
+      "ReadOnly": 0,
+      "ArchiveFormVisible": 1,
+      "PropertyCaption": "S\\N",
+      "PropertyValue": null
+    },
+    {
+      "Deleted": false,
+      "PropertyId": 13,
+      "UUTPropertyValuesOptions": [],
+      "DisplayInReportFileName": 0,
+      "PrintInClusterReport": 0,
+      "GuiVisible": 1,
+      "Required": 0,
+      "ReadOnly": 0,
+      "ArchiveFormVisible": 1,
+      "PropertyCaption": "GYRO S\\N",
+      "PropertyValue": null
+    },
+    {
+      "Deleted": false,
+      "PropertyId": 14,
+      "UUTPropertyValuesOptions": [],
+      "DisplayInReportFileName": 0,
+      "PrintInClusterReport": 0,
+      "GuiVisible": 1,
+      "Required": 0,
+      "ReadOnly": 0,
+      "ArchiveFormVisible": 1,
+      "PropertyCaption": "EL Resolvere S\\N",
+      "PropertyValue": null
+    },
+    {
+      "Deleted": false,
+      "PropertyId": 15,
+      "UUTPropertyValuesOptions": [],
+      "DisplayInReportFileName": 0,
+      "PrintInClusterReport": 0,
+      "GuiVisible": 1,
+      "Required": 0,
+      "ReadOnly": 0,
+      "ArchiveFormVisible": 1,
+      "PropertyCaption": "AZ Resolver S\\N",
+      "PropertyValue": null
+    },
+    {
+      "Deleted": false,
+      "PropertyId": 16,
+      "UUTPropertyValuesOptions": [],
+      "DisplayInReportFileName": 0,
+      "PrintInClusterReport": 0,
+      "GuiVisible": 1,
+      "Required": 0,
+      "ReadOnly": 0,
+      "ArchiveFormVisible": 1,
+      "PropertyCaption": "TACHO S\\N",
+      "PropertyValue": null
+    }
+  ]
+}

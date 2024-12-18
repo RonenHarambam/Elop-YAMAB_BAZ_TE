@@ -1,0 +1,247 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EthernetCommManager</name>
+    </assembly>
+    <members>
+        <member name="T:TcpLib.UdpClientManager">
+            <summary>
+            http://stackoverflow.com/questions/16113524/converting-windows-sockets-to-net
+            </summary>
+        </member>
+        <member name="M:TcpLib.UdpClientManager.#ctor(System.String,System.String,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="ip"></param>
+            <param name="portReceive">Port to use for receiving data</param>
+            <param name="portTransmit">Port to use for transmiting data</param>
+            <param name="raiseEventOnNewData">
+             Indicates if new data is read directly from the queue or "New Data" event should be rasied.
+            </param>
+        </member>
+        <member name="M:TcpLib.UdpClientManager.OnConnect(System.IAsyncResult)">
+            <summary>
+            Async connect has been complete.
+            </summary>
+            <param name="ar"></param>
+        </member>
+        <member name="M:TcpLib.UdpClientManager.SendAsciMessage(System.String)">
+            <summary>
+            Split the string to chars and send.
+            Note each line should be terminated with \n.
+            </summary>
+            <param name="tcpManager"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:TcpLib.UdpClientManager.SendAsciMessageWithDelay(System.String,System.Int32)">
+            <summary>
+            Split the string to chars and send.
+            Note each line should be terminated with \n.
+            </summary>
+            <param name="tcpManager"></param>
+            <param name="message"></param>
+        </member>
+        <member name="F:TcpLib.UdpClientManager.m_exit">
+            <summary>
+            Start connetion process to server which was specified in the constructor.
+            When connection is complete event will be raised
+            </summary>
+        </member>
+        <member name="M:TcpLib.UdpClientManager.SyncConnect">
+            <summary>
+            Connect to server using syncronize connection method.
+            When connection is complete the event "OnConnectionEstablished" will be raised.
+            </summary>
+        </member>
+        <member name="M:TcpLib.UdpClientManager.SendMessage(System.Byte[])">
+            <summary>
+            Send messages to the server.
+            Exception is thrwon in case of errror.
+            </summary>
+            <param name="buffer"></param>
+        </member>
+        <member name="M:TcpLib.UdpClientManager.PollingDataThread">
+            <summary>
+            Check if new data has been receieved from the server.
+            </summary>
+        </member>
+        <member name="E:TcpLib.UdpClientManager.ConnectionEstablishedEvent">
+            <summary>
+            The event is raised when connection established with TCP server.
+            </summary>
+        </member>
+        <member name="E:TcpLib.UdpClientManager.DisconnectEvent">
+            <summary>
+            The event is raised when connection with the server is cut.
+            </summary>
+        </member>
+        <member name="E:TcpLib.UdpClientManager.NewDataEvent">
+            <summary>
+            The event is raised when connection with the server is cut.
+            </summary>
+        </member>
+        <member name="P:TcpLib.UdpClientManager.Connected">
+            <summary>
+            Indicates if the manager is currently connected to server.
+            </summary>
+        </member>
+        <member name="P:TcpLib.UdpClientManager.IPTransmit">
+            <summary>
+            Return the server IP.
+            </summary>
+        </member>
+        <member name="P:TcpLib.UdpClientManager.PortTranmsit">
+            <summary>
+            Return the server port.
+            </summary>
+        </member>
+        <member name="P:TcpLib.UdpClientManager.PortReceive">
+            <summary>
+            Return the server port.
+            </summary>
+        </member>
+        <member name="P:TcpLib.UdpClientManager.Buffer">
+            <summary>
+            In case event is not rasied for new data then the read data is stored in this queue.
+            </summary>
+        </member>
+        <member name="M:TcpLib.TcpClientManager.#ctor(System.String,System.Int32,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="ip"></param>
+            <param name="port"></param>
+            <param name="raiseEventOnNewData">
+             Indicates if new data is read directly from the queue or "New Data" event should be rasied.
+            </param>
+        </member>
+        <member name="M:TcpLib.TcpClientManager.OnConnect(System.IAsyncResult)">
+            <summary>
+            Async connect has been complete.
+            </summary>
+            <param name="ar"></param>
+        </member>
+        <member name="M:TcpLib.TcpClientManager.SendAsciMessageWithDelay(System.String,System.Int32)">
+            <summary>
+            Split the string to chars and send.
+            Note each line should be terminated with \n.
+            </summary>
+            <param name="tcpManager"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:TcpLib.TcpClientManager.AsynConnect">
+            <summary>
+            Start connetion process to server which was specified in the constructor.
+            When connection is complete event will be raised
+            </summary>
+        </member>
+        <member name="M:TcpLib.TcpClientManager.SyncConnect">
+            <summary>
+            Connect to server using syncronize connection method.
+            When connection is complete the event "OnConnectionEstablished" will be raised.
+            </summary>
+        </member>
+        <member name="M:TcpLib.TcpClientManager.SendMessage(System.Byte[])">
+            <summary>
+            Send messages to the server.
+            Exception is thrwon in case of errror.
+            </summary>
+            <param name="buffer"></param>
+        </member>
+        <member name="M:TcpLib.TcpClientManager.PollingDataThread">
+            <summary>
+            Check if new data has been receieved from the server.
+            </summary>
+        </member>
+        <member name="E:TcpLib.TcpClientManager.ConnectionEstablishedEvent">
+            <summary>
+            The event is raised when connection established with TCP server.
+            </summary>
+        </member>
+        <member name="E:TcpLib.TcpClientManager.DisconnectEvent">
+            <summary>
+            The event is raised when connection with the server is cut.
+            </summary>
+        </member>
+        <member name="E:TcpLib.TcpClientManager.NewDataEvent">
+            <summary>
+            The event is raised when connection with the server is cut.
+            </summary>
+        </member>
+        <member name="P:TcpLib.TcpClientManager.Connected">
+            <summary>
+            Indicates if the manager is currently connected to server.
+            </summary>
+        </member>
+        <member name="P:TcpLib.TcpClientManager.IP">
+            <summary>
+            Return the server IP.
+            </summary>
+        </member>
+        <member name="P:TcpLib.TcpClientManager.Port">
+            <summary>
+            Return the server port.
+            </summary>
+        </member>
+        <member name="P:TcpLib.TcpClientManager.Buffer">
+            <summary>
+            In case event is not rasied for new data then the read data is stored in this queue.
+            </summary>
+        </member>
+        <member name="T:DeviceManager.EthernetCommManager">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:DeviceManager.EthernetCommManager.ClientConnect(System.String,System.Int32,System.Int32)">
+            <summary>
+            Connects the client to a remote TCP host using the specified IP and port.
+            </summary>
+            <param name="ip">IP to connect to.</param>
+            <param name="port">Port to connec to.</param>
+            <param name="connectTimeoutMsec">Maximum time for the connect operation.</param>
+        </member>
+        <member name="M:DeviceManager.EthernetCommManager.ClientDisconnect">
+            <summary>
+            Close the open connection with  the server. This function must be called in the end of the session.
+            </summary>
+        </member>
+        <member name="M:DeviceManager.EthernetCommManager.ClientSendMessageAsci(System.String,System.Byte,System.Int32)">
+            <summary>
+            Send message to the server.
+            </summary>
+            <param name="s"></param>
+            <param name="addNewLineInTheEnd"></param>
+            <param name="delayBetweenChars">Msec</param>
+        </member>
+        <member name="M:DeviceManager.EthernetCommManager.ClientReadMessageAsci(System.String@)">
+            <summary>
+            Read string message from the server using the current open connection.
+            </summary>
+            <param name="s"></param>
+        </member>
+        <member name="M:DeviceManager.EthernetCommManager.Ping(System.String,System.Int32,System.Int64@)">
+            <summary>
+            Attempts to send an Internet Control Message Protocol (ICMP) echo message
+            to the specified computer, and receive a corresponding ICMP echo reply message
+            from that computer. This method allows you to specify a time-out value for
+            the operation.
+            </summary>
+            <param name="hostNameOrAddress">  A System.String that identifies the computer that is the destination for the ICMP echo message. The value specified for this parameter can be a host name or a string representation of an IP address</param>
+            <param name="timeOutMsec">A time-out value for the operation.</param>
+            <param name="roundTripTime">Gets the number of milliseconds taken to send an Internet Control Message. Protocol (ICMP) echo request and receive the corresponding ICMP echo reply message. In case no answer (-1) is returned.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DeviceManager.EthernetCommManager.LoopBack(System.String,System.Int32,System.String,System.Int32,System.Byte[],System.Byte[]@)">
+            <summary>
+            Sends stream of bytes from (IP1,Port1) and read bytes from (IP2,Port2)
+            </summary>
+            <param name="ip1"></param>
+            <param name="port1"></param>
+            <param name="ip2"></param>
+            <param name="port2"></param>
+            <param name="buffer2Send"></param>
+            <param name="bufferReply"></param>
+        </member>
+    </members>
+</doc>

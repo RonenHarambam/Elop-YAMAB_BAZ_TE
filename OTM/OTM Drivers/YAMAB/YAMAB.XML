@@ -1,0 +1,184 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>YAMAB</name>
+    </assembly>
+    <members>
+        <member name="M:OrionTools.StateMachineBase.Init">
+            <summary>
+            Here you should reset your state machine.
+            </summary>
+        </member>
+        <member name="E:OrionTools.StateMachineBase.NewDataEvent">
+            <summary>
+            The event is raised to report to the client about new data.
+            </summary>
+        </member>
+        <member name="T:OrionTools.StateMachineBase.NewDataArg">
+            <summary>
+            This arguent is sent as "e" argument when the NewDataEvents is thrown
+            </summary>
+        </member>
+        <member name="T:OTools.ConversionsBigEndian">
+            <summary>
+            Big endian - Should inherit from ConversionsBase and override all its functions
+            </summary>
+        </member>
+        <member name="M:OTools.ConversionsBase.CopyBuffer(System.Byte[],System.Byte[],System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Copying the data to the buffer count bytes from indexStart assuming buffer has the correct size
+            </summary>
+            <param name="buffer">The buffer to be filled</param>
+            <param name="data">The data that will be copied from</param>
+            <param name="indexStart">The index we start to copy from data</param>
+            <param name="count">Number of bytes to be copied, if left unassigned then the default is actually the srcBuffer length</param>
+            <param name="indexStartDst">The index we start to fill the data in dstBuffer</param>
+        </member>
+        <member name="M:OTools.ConversionsBigEndian.UInt32ToBytes(System.UInt32)">
+            <summary>
+            the first item in the array stores the msb
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YAMAB.YAMABManager.Connect(System.String,System.Int32,System.Int32)">
+            <summary>
+            Connect TCP server using the specified IP and port
+            </summary>
+            <param name="ip"></param>
+            <param name="port"></param>
+            <param name="delayBeforeSendingEcho">The delay time between connection established and start send the echo command</param>
+        </member>
+        <member name="M:YAMAB.YAMABManager.GetAllSensorsInformation(System.Byte@,System.Single@,System.Single@,System.Byte@,System.Byte@,System.Single@,System.Single@,System.Byte@)">
+            <summary>
+            
+            </summary>
+            <param name="bazMode">0:Emergency</param>
+            <param name="traverseAngleGunnerMirror">rad</param>
+            <param name="jackingAngleGunnerMirror">rad</param>
+            <param name="solonoidJacking">0:Close; 1:Open</param>
+            <param name="solonoidTraverse">0:Close; 1:Open</param>
+            <param name="sachiputResetValueTraverse">mrad</param>
+            <param name="sachiputResetValueJacking">mrad</param>
+            <param name="driftCalibrationStatus">0:Not in process, 1:In process</param>
+        </member>
+        <member name="M:YAMAB.YAMABManager.GetAllBazFailures(System.UInt16@,System.UInt16@)">
+            <summary>
+            
+            </summary>
+            <param name="numberOfFailures"></param>
+            <param name="errorNumber">0:1534</param>
+        </member>
+        <member name="M:YAMAB.YAMABManager.GetBazFailuresUpdate(System.UInt16@,System.Byte@)">
+            <summary>
+            
+            </summary>
+            <param name="failureNumber">0:1534</param>
+            <param name="status">0:Not exist; 1:Exist</param>
+        </member>
+        <member name="M:YAMAB.YAMABManager.SetMainSystemMode(System.Byte)">
+            <summary>
+            
+            </summary>
+            <param name="systemMode">0:Emergency; 1:Gun slaved; 2:Sight slave; 3:Gun slaved and tacho</param>
+        </member>
+        <member name="M:YAMAB.YAMABManager.SetBazParameters(System.Byte,System.Single)">
+            <summary>
+            
+            </summary>
+            <param name="bazParamType">EL=4; AZ=5</param>
+            <param name="value">Units in mrad. EL range=(-244):384; AZ range=(-60):60</param>
+        </member>
+        <member name="M:TcpLib.TcpClientManager.#ctor(System.String,System.Int32,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="ip"></param>
+            <param name="port"></param>
+            <param name="raiseEventOnNewData">
+             Indicates if new data is read directly from the queue or "New Data" event should be rasied.
+            </param>
+        </member>
+        <member name="M:TcpLib.TcpClientManager.OnConnect(System.IAsyncResult)">
+            <summary>
+            Async connect has been complete.
+            </summary>
+            <param name="ar"></param>
+        </member>
+        <member name="M:TcpLib.TcpClientManager.SendAsciMessage(System.String)">
+            <summary>
+            Split the string to chars and send.
+            Note each line should be terminated with \n.
+            </summary>
+            <param name="tcpManager"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:TcpLib.TcpClientManager.SendAsciMessageWithDelay(System.String,System.Int32)">
+            <summary>
+            Split the string to chars and send.
+            Note each line should be terminated with \n.
+            </summary>
+            <param name="tcpManager"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:TcpLib.TcpClientManager.AsynConnect">
+            <summary>
+            Start connetion process to server which was specified in the constructor.
+            When connection is complete event will be raised
+            </summary>
+        </member>
+        <member name="M:TcpLib.TcpClientManager.SyncConnect">
+            <summary>
+            Connect to server using syncronize connection method.
+            When connection is complete the event "OnConnectionEstablished" will be raised.
+            </summary>
+        </member>
+        <member name="M:TcpLib.TcpClientManager.SendMessage(System.Byte[])">
+            <summary>
+            Send messages to the server.
+            Exception is thrwon in case of errror.
+            </summary>
+            <param name="buffer"></param>
+        </member>
+        <member name="M:TcpLib.TcpClientManager.PollingDataThread">
+            <summary>
+            Check if new data has been receieved from the server.
+            </summary>
+        </member>
+        <member name="E:TcpLib.TcpClientManager.ConnectionEstablishedEvent">
+            <summary>
+            The event is raised when connection established with TCP server.
+            </summary>
+        </member>
+        <member name="E:TcpLib.TcpClientManager.DisconnectEvent">
+            <summary>
+            The event is raised when connection with the server is cut.
+            </summary>
+        </member>
+        <member name="E:TcpLib.TcpClientManager.NewDataEvent">
+            <summary>
+            The event is raised when connection with the server is cut.
+            </summary>
+        </member>
+        <member name="P:TcpLib.TcpClientManager.Connected">
+            <summary>
+            Indicates if the manager is currently connected to server.
+            </summary>
+        </member>
+        <member name="P:TcpLib.TcpClientManager.IP">
+            <summary>
+            Return the server IP.
+            </summary>
+        </member>
+        <member name="P:TcpLib.TcpClientManager.Port">
+            <summary>
+            Return the server port.
+            </summary>
+        </member>
+        <member name="P:TcpLib.TcpClientManager.Buffer">
+            <summary>
+            In case event is not rasied for new data then the read data is stored in this queue.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CameraViewerAPI</name>
+    </assembly>
+    <members>
+        <member name="T:CameraViewer.API.CameraViewerAPI">
+            <summary>
+            Camera viewer app api.
+            </summary>
+        </member>
+        <member name="P:CameraViewer.API.CameraViewerAPI.CrossLocation">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:CameraViewer.API.CameraViewerAPI.SelectedCamera">
+            <summary>
+            Set the seleted camera
+            </summary>
+        </member>
+        <member name="M:CameraViewer.API.CameraViewerAPI.CloseCameraViewer">
+            <summary>
+            Close the camera viewer app
+            </summary>
+        </member>
+        <member name="M:CameraViewer.API.CameraViewerAPI.ConnectCamera">
+            <summary>
+            Connects to the seleted camera.
+            </summary>
+        </member>
+        <member name="M:CameraViewer.API.CameraViewerAPI.StabilitySingleShot">
+            <summary>
+            Perform Single Shot
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CameraViewer.API.CameraViewerAPI.ConnectToCameraViewer(System.String)">
+            <summary>
+            Start the API
+            </summary>
+        </member>
+        <member name="M:CameraViewer.API.CameraViewerAPI.OpenStability">
+            <summary>
+            Starts a stability measurement
+            </summary>
+        </member>
+        <member name="M:CameraViewer.API.CameraViewerAPI.CloseStability">
+            <summary>
+            Ends a stability measurement
+            </summary>
+        </member>
+        <member name="P:CameraViewer.API.ICameraViewerAPI.CrossLocation">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:CameraViewer.API.ICameraViewerAPI.SelectedCamera">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:CameraViewer.API.ICameraViewerAPI.StabilitySingleShot">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CameraViewer.API.ICameraViewerAPI.ConnectToCameraViewer(System.String)">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:CameraViewer.API.ICameraViewerAPI.CloseCameraViewer">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:CameraViewer.API.ICameraViewerAPI.ConnectCamera">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:CameraViewer.API.ICameraViewerAPI.OpenStability">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:CameraViewer.API.ICameraViewerAPI.CloseStability">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>

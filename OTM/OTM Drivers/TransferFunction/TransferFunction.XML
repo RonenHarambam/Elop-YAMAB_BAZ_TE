@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TransferFunction</name>
+    </assembly>
+    <members>
+        <member name="M:OTM_Tools.TransferFunction.CalcOpenLoopValues(System.Double,System.Double,System.Double@,System.Double@)">
+            <summary>
+            
+            </summary>
+            <param name="phaseDegCloseLoop"></param>
+            <param name="ampDBCloseLoop"></param>
+            <param name="phaseOpenLoopDeg"></param>
+            <param name="ampOpenLoopDB"></param>
+            <remarks>
+            Imaginary is the magnitude part of the complex number.
+            </remarks>
+        </member>
+        <member name="M:OTM_Tools.TransferFunction.Add(System.Double,System.Double,System.Double,System.Double@,System.Double@)">
+            <summary>
+            
+            </summary>
+            <param name="frequency"></param>
+            <param name="ampCloseLoopDB"></param>
+            <param name="phaseCloseLoopDeg"></param>
+            <param name="ampOpenLoopDB"></param>
+            <param name="phaseOpenLoopDeg"></param>
+        </member>
+        <member name="M:OTM_Tools.TransferFunction.GetFrequencyData(System.Double,System.Double@,System.Double@,System.Double@,System.Double@)">
+            <summary>
+            
+            </summary>
+            <param name="frequency"></param>
+            <param name="ampCloseLoopDB"></param>
+            <param name="phaseCloseLoopDeg"></param>
+            <param name="ampOpenLoopDB"></param>
+            <param name="phaseOpenLoopDeg"></param>
+        </member>
+        <member name="M:OTM_Tools.TransferFunction.GetOverShootDataCloseLoop(System.Double,System.Double,System.Double@,System.Double@,System.Double@)">
+            <summary>
+            Closed loop
+            </summary>
+            <param name="frequencyStartSearch"></param>
+            <param name="frequencyStartSearch"></param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:OTM_Tools.TransferFunction.GetGainMarginDataOpenLoop(System.Double,System.Double,System.Double@,System.Double@)" -->
+        <!-- Badly formed XML comment ignored for member "M:OTM_Tools.TransferFunction.GetPhaseMarginDataOpenLoop(System.Double,System.Double,System.Double@,System.Double@)" -->
+    </members>
+</doc>
